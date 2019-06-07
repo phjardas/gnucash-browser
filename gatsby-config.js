@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: "gatsby-source-gnucash",
       options: {
-        filename: "/home/phjardas/Downloads/Ultimate.gnucash",
+        filename: "/absolute/path/to/ledger.gnucash",
       },
     },
     `gatsby-plugin-react-helmet`,
