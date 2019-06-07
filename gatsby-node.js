@@ -1,7 +1,20 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = async function({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allGnuCashAccount {
+        nodes {
+          id
+          gnuCashId
+        }
+      }
+    }
+  `);
 
-// You can delete this file if you're not using it
+  data.allGnuCashAccount.nodes.forEach(({ id, gnuCashId }) => {
+    actions.createPage({
+      path: `/accounts/${gnuCashId}`,
+      component: require.resolve(`./src/templates/account.js`),
+      context: { id },
+    });
+  });
+};

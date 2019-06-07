@@ -1,0 +1,9 @@
+.transactions {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-gap: 0.5rem 1rem;
+}
+
+.split {
+  grid-column: span 2;
+}
